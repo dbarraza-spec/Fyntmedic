@@ -48,3 +48,17 @@ export async function agregarAddendum(f: FormData) {
   if (error) throw new Error(error.message);
   revalidatePath(`/app/pacientes/${pac}/notas/${id}`);
 }
+
+export async function registrarEstudio(e: { paciente: string; path: string; tipo: string; nombre: string; fecha: string; laboratorio: string; resultado: string }) {
+  const ctx = await getCtx();
+  if (!ctx.miembro) return { error: 'Sin clínica.' };
+  if (!e.path.startsWith(`${ctx.miembro.clinica_id}/${e.paciente}/`)) return { error: 'Ruta inválida.' };
+  const sb = await supabaseServer();
+  const { error } = await sb.from('estudios').insert({
+    clinica_id: ctx.miembro.clinica_id, paciente_id: e.paciente, tipo: e.tipo, nombre: e.nombre.trim(), fecha: e.fecha,
+    laboratorio: e.laboratorio.trim() || null, resultado: e.resultado.trim() || null, archivo_path: e.path, subido_por: ctx.userId,
+  });
+  if (error) return { error: error.message };
+  revalidatePath(`/app/pacientes/${e.paciente}`);
+  return { ok: true };
+}

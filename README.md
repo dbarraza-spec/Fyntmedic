@@ -8,7 +8,7 @@ Expediente clínico electrónico por suscripción, con la marca de cada clínica
 |---|---|
 | `/` (`public/landing.html`) | Landing de venta. |
 | `/demo` (`public/demo/`) | Demo con datos de ejemplo en el navegador. **No usar con pacientes reales.** |
-| `/login`, `/app/...` | **App real** (Next.js + Supabase): login, roles, súper admin, usuarios, pacientes, expediente y notas con firma. |
+| `/login`, `/app/...` | **App real** (Next.js + Supabase): login, roles, súper admin, usuarios, inicio, agenda, pacientes, expediente, notas con firma, historia clínica, estudios, recetas con PDF, inventario, Mi marca, firma del médico y bitácora. |
 | `supabase/migrations/0001_esquema.sql` | Base de datos real: clínicas, 5 roles, pacientes, notas, recetas, historia clínica, estudios, agenda, inventario y bitácora. |
 
 ## Reglas que cuida la base de datos (no solo la pantalla)
@@ -33,6 +33,8 @@ Se ponen en Vercel → Project → Settings → Environment Variables. **Nunca**
 
 ## Pendiente (siguientes entregas)
 
-- Agenda, recetas en PDF, estudios con archivos, historia clínica e inventario en la app real.
 - Catálogo CIE-10 oficial completo (requisito NOM-024).
 - Cambio de contraseña y 2FA.
+- Editar datos del paciente desde el expediente.
+- Firma con e.firma del SAT y constancias NOM-151.
+- Zona horaria por clínica (hoy fija en America/Mazatlan).

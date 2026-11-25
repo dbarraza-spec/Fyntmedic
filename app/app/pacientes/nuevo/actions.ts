@@ -22,10 +22,12 @@ export async function crearPaciente(_: { error?: string } | undefined, f: FormDa
     tipo_sangre: opt(f, 'sangre'),
     alergias: niega ? [] : txt(f, 'alergias').split(',').map((s) => s.trim()).filter(Boolean),
     niega_alergias: niega,
-    enfermedades: dxDe(f, 'enf', 3),
+    enfermedades: dxDe(f, 'enf', 6),
     cirugias: opt(f, 'cirugias'), medicamentos: opt(f, 'meds'),
     acepta_privacidad: true, acepta_whatsapp: f.get('whatsapp') === 'on',
   }).select('id').single();
   if (error) return { error: error.message.includes('curp') ? 'La CURP no tiene un formato válido.' : 'No se pudo guardar: ' + error.message };
+  const cita = txt(f, 'cita');
+  if (cita) await sb.from('citas').update({ paciente_id: data.id, nombre_nuevo: null, telefono_nuevo: null }).eq('id', cita).eq('clinica_id', ctx.miembro.clinica_id);
   redirect(`/app/pacientes/${data.id}`);
 }
