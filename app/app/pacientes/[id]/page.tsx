@@ -95,7 +95,7 @@ export default async function Expediente({ params, searchParams }: { params: Pro
   }
 
   const em = p.contacto_emergencia as { nombre?: string; parentesco?: string; telefono?: string };
-  const box = (bg: string, c: string, t: string, v: React.ReactNode) => <div style={{ background: bg, borderRadius: 18, padding: '14px 16px' }}><div style={{ fontSize: 11.5, fontWeight: 800, letterSpacing: '.05em', color: c }}>{t}</div><div style={{ fontWeight: 700, marginTop: 6, whiteSpace: 'pre-line', color: c }}>{v}</div></div>;
+  const box = (bg: string, c: string, t: string, v: React.ReactNode) => <div style={{ background: bg, borderRadius: 14, padding: '14px 16px' }}><div style={{ fontSize: 11.5, fontWeight: 800, letterSpacing: '.05em', color: c }}>{t}</div><div style={{ fontWeight: 700, marginTop: 6, whiteSpace: 'pre-line', color: c }}>{v}</div></div>;
   return (
     <>
       <Link className="back" href="/app/pacientes">← Expedientes</Link>

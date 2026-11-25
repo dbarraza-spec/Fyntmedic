@@ -3,7 +3,10 @@ import { supabaseServer } from '@/lib/supabase/server';
 import { FormUsuario } from './form';
 import { cambiarActivo } from './actions';
 
-const ROL: Record<string, string> = { admin: 'Administrador', medico: 'Médico', enfermeria: 'Enfermería', recepcion: 'Recepción' };
+const ROL: Record<string, [string, string, string]> = {
+  admin: ['Administrador', 'var(--marca)', 'var(--marca-suave)'], medico: ['Médico', '#16a34a', '#f0fdf4'],
+  enfermeria: ['Enfermería', '#b45309', '#fffbeb'], recepcion: ['Recepción', '#475569', '#f1f5f9'],
+};
 
 export default async function Usuarios() {
   const ctx = await getCtx();
@@ -16,8 +19,8 @@ export default async function Usuarios() {
       <div className="tb-caja"><table><thead><tr><th>Nombre</th><th>Rol</th><th>Cédula</th><th>Estado</th><th></th></tr></thead><tbody>
         {(data ?? []).map((m) => (
           <tr key={m.id}>
-            <td><b>{`${m.titulo ?? ''} ${m.nombre}`.trim()}</b>{m.especialidad ? <div className="ayuda">{m.especialidad}</div> : null}</td>
-            <td>{ROL[m.rol]}</td><td>{m.cedula ?? '—'}</td>
+            <td><b>{`${m.titulo ?? ''} ${m.nombre}`.trim()}</b>{m.user_id === ctx.userId && <span style={{ color: 'var(--marca)', fontSize: 11, fontWeight: 600, marginLeft: 6 }}>Tú</span>}{m.especialidad ? <div className="ayuda">{m.especialidad}</div> : null}</td>
+            <td><span className="rol" style={{ color: ROL[m.rol][1], background: ROL[m.rol][2] }}>{ROL[m.rol][0]}</span></td><td>{m.cedula ?? '—'}</td>
             <td><span className={`chip ${m.activo ? 'v' : 'r'}`}>{m.activo ? 'Activo' : 'Sin acceso'}</span></td>
             <td>{m.user_id !== ctx.userId && (
               <form action={cambiarActivo}><input type="hidden" name="id" value={m.id} /><input type="hidden" name="activo" value={String(!m.activo)} />

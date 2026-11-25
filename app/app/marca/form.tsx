@@ -26,7 +26,7 @@ export function MarcaForm({ c, logoUrl }: { c: C; logoUrl: string | null }) {
     setLogo(URL.createObjectURL(file)); setMsg('Logo guardado.'); router.refresh();
   }
   return (
-    <div className="g2" style={{ ['--azul' as string]: color }}>
+    <div className="g2" style={{ ['--marca' as string]: color }}>
       <form action={act} className="card"><h2>Identidad</h2>
         <label className="c">Nombre de la clínica<input className="i" name="nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} required /></label>
         <label className="c">Domicilio (sale en recetas y notas)<input className="i" name="dir" defaultValue={c.domicilio ?? ''} /></label>
@@ -44,7 +44,7 @@ export function MarcaForm({ c, logoUrl }: { c: C; logoUrl: string | null }) {
           <input type="file" accept="image/png,image/jpeg" onChange={(e) => e.target.files?.[0] && subir(e.target.files[0])} /></label>
         {logo && <div><button type="button" className="btn sec ch" onClick={async () => { await guardarLogo(null); setLogo(null); router.refresh(); }}>Quitar logo</button></div>}
         {msg && <div className="aviso">{msg}</div>}
-        <div style={{ border: '1px solid var(--borde)', borderRadius: 16, overflow: 'hidden' }}>
+        <div style={{ border: '1px solid var(--borde)', borderRadius: 14, overflow: 'hidden' }}>
           <div style={{ background: 'var(--marino)', padding: 18, color: '#fff' }}><b>¿A quién buscas hoy?</b><div style={{ background: '#fff', borderRadius: 99, padding: '10px 16px', marginTop: 10, color: 'var(--gris)', fontSize: 13 }}>Nombre, CURP, teléfono…</div></div>
           <div style={{ padding: 16, display: 'flex', flexDirection: 'column', gap: 12 }}>
             <div className="fila"><span className="btn ch">Botón principal</span><span className="chip">Etiqueta</span><span className="tab on">Pestaña</span></div>

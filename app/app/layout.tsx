@@ -20,7 +20,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   }
   if (ctx.superadmin) items.push({ href: '/app/admin', label: 'Súper admin', icon: 'star' });
   return (
-    <div className="app" style={{ ['--azul' as string]: color }}>
+    <div className="app" style={{ ['--marca' as string]: color }}>
       <nav className="side" aria-label="Menú">
         <div className="brand">{logo ? <img src={logo} alt="" /> : <LogoF color={color} />}<div><b>{ctx.clinica?.nombre ?? 'FyntMedic'}</b><small>con FyntMedic</small></div></div>
         <Nav items={items} />

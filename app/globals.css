@@ -137,3 +137,62 @@ form{margin:0}
 a.tab{display:inline-flex;align-items:center}
 .ag a.ct{display:block;text-decoration:none}
 .ag a.sl{display:block}.ag a.dh{text-decoration:none}
+
+/* =====================================================================
+   Guía de diseño Fynt (web) — se aplica encima de todo lo anterior.
+   Marca con var(--marca) y var(--marca-suave) para la marca blanca.
+   ===================================================================== */
+:root{--marca:#0077b6;--marca-suave:color-mix(in srgb,var(--marca) 7%,#fff);--azul:var(--marca);--azul-claro:var(--marca-suave);--azul-hover:color-mix(in srgb,var(--marca) 85%,#000);
+  --texto:#0f172a;--texto-2:#475569;--gris:#98A2B3;--borde:#EDF2F7;--borde-suave:#f1f5f9;--fondo:#F8FAFC;
+  --verde-t:#16a34a;--verde-f:#f0fdf4;--rojo-t:#EF4444;--rojo-f:#fef2f2;--ama-t:#b45309;--ama-f:#fffbeb}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;font-size:14px;background:#F8FAFC}
+.app{--marca-suave:color-mix(in srgb,var(--marca) 7%,#fff);--azul:var(--marca);--azul-claro:var(--marca-suave)}
+/* Tarjetas y contenedores: 14 px, borde casi blanco, sombra suave */
+.card,.kpi,.pac,.nt,.hero,.tb-caja,.md,.ag-caja,.ci,.th,.vacio,.subir,.aviso,.barra{border-radius:14px}
+.card,.kpi,.pac,.tb-caja{border:1px solid #f1f5f9;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.side{border-right:1px solid #f1f5f9}.mi{border-radius:10px;font-weight:600}.mi.on{background:var(--marca-suave);color:var(--marca)}
+h1{font-size:clamp(22px,2.6vw,26px);font-weight:700}h2{font-size:16px;font-weight:700}
+.sub,.ayuda{color:#98A2B3}
+/* Etiquetas: mayúsculas pequeñas grises */
+.c{font-size:11px;font-weight:700;color:#98A2B3;letter-spacing:.06em;text-transform:uppercase;gap:6px}
+.c .ayuda,.c .chip,.c .chips,.c span:not(.ayuda){text-transform:none;letter-spacing:normal;font-weight:500}
+/* Campos: 40 px, borde #EDF2F7, radio 10, foco con halo de marca */
+.i{height:40px;min-height:40px;border:1px solid #EDF2F7;border-radius:10px;padding:0 12px;font:400 14px 'Inter',system-ui,sans-serif;color:#0f172a;background:#fff}
+textarea.i{height:auto;min-height:90px;padding:10px 12px;resize:none}
+.i:focus,.ii:focus-within{border-color:var(--marca);box-shadow:0 0 0 3px color-mix(in srgb,var(--marca) 10%,transparent)}
+select.i{appearance:none;-webkit-appearance:none;padding:0 36px 0 12px;cursor:pointer;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2398A2B3' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center}
+select.i:hover{border-color:var(--marca)}
+.ii{border:1px solid #EDF2F7;border-radius:10px;padding:0 12px;color:#98A2B3}.ii input{font:400 14px 'Inter',sans-serif;padding:10px 0}
+.hero .ii{border-radius:10px;padding:4px 4px 4px 14px}
+/* Botones: 40 px, radio 10, principal marca, secundario blanco */
+.btn{height:40px;min-height:40px;padding:0 24px;border-radius:10px;font:600 14px 'Inter',sans-serif;background:var(--marca)}
+.btn:hover{background:var(--azul-hover)}.btn:disabled{opacity:.7;cursor:not-allowed}
+.btn.sec{background:#fff;border:1px solid #EDF2F7;color:#475569;padding:0 20px}.btn.sec:hover{border-color:var(--marca);color:var(--marca);background:#fff}
+.btn.borde{background:#fff;border:1px solid var(--marca);color:var(--marca)}
+.btn.ch{height:32px;min-height:32px;padding:0 14px;font-size:13px;border-radius:8px}
+.btn.osc{border:1px solid rgba(255,255,255,.35)}
+/* Píldoras: 12 px, 600, 3px 10px, radio 20 */
+.chip{font-size:12px;font-weight:600;padding:3px 10px;border-radius:20px;background:var(--marca-suave);color:var(--marca)}
+.chip.v{background:#f0fdf4;color:#16a34a}.chip.r{background:#fef2f2;color:#EF4444}.chip.a{background:#fffbeb;color:#b45309}.chip.g{background:#f1f5f9;color:#475569}
+.rol{display:inline-flex;align-items:center;font-size:12px;font-weight:600;padding:4px 10px;border-radius:8px}
+.tag{border-radius:8px;background:#fffbeb;color:#b45309}
+/* Opciones y pestañas: radio 10, selección en marca suave */
+.op span,.tab{border:1px solid #EDF2F7;border-radius:10px;font:600 13px 'Inter',sans-serif;color:#475569;min-height:36px;padding:7px 14px}
+.op input:checked+span,.tab.on{background:var(--marca-suave);border-color:var(--marca);color:var(--marca)}
+.sw{border:1px solid #EDF2F7;border-radius:10px}.sw.on{border:2px solid var(--sc)}
+/* Tablas: encabezado gris en mayúsculas, filas de 13 px con línea #f1f5f9 */
+table{font-size:13px}
+th{background:#fff;color:#98A2B3;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:12px 20px;border-bottom:1px solid #f1f5f9}
+td{padding:14px 20px;border-top:0;border-bottom:1px solid #f1f5f9;color:#0f172a}
+tr:last-child td{border-bottom:0}
+td .ayuda{font-size:12px}
+.hf th,.hf td{padding:10px 12px}
+/* Avisos y barra de acciones */
+.aviso{font-size:13px}.aviso.ok{background:#f0fdf4;color:#16a34a}.aviso.er{background:#fef2f2;color:#EF4444}.aviso.al{background:#fffbeb;color:#b45309}
+.barra{border-radius:14px;padding:12px 16px;box-shadow:0 12px 30px rgba(15,23,42,.18)}
+/* Signos vitales y cuadros del expediente */
+.vit label{border-radius:10px}
+.kpi b{font-size:24px;font-weight:700}.kpi span{color:#98A2B3;font-size:12px}
+.pk-res{border:1px solid #EDF2F7;border-radius:12px;box-shadow:0 12px 30px rgba(15,23,42,.14)}
+.pk-res button{font-size:13px}
+.ag .ct{border-radius:8px}.ag .dh.hoy b{background:var(--marca)}
