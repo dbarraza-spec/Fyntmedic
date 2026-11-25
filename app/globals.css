@@ -1,0 +1,47 @@
+/* Estilos Fynt (guía fynt-estilos.css) aplicados a FyntMedic */
+:root{--azul:#0077b6;--azul-hover:color-mix(in srgb,var(--azul) 80%,#000);--azul-claro:color-mix(in srgb,var(--azul) 10%,#fff);--marino:#0B1C33;--texto:#0f172a;--texto-2:#334155;--gris:#64748B;--fondo:#F4F8FC;--borde:#E2E8F0;--borde-suave:#EEF2F6;--verde-f:#DCFCE7;--verde-t:#15803D;--ama-f:#FEF3C7;--ama-t:#92400E;--rojo:#DC2626;--rojo-f:#FEE2E2;--rojo-t:#B91C1C;color-scheme:light}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;font:15px/1.5 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--texto);background:var(--fondo);-webkit-font-smoothing:antialiased}
+a{color:var(--azul);text-decoration:none}
+h1{font-size:clamp(24px,3vw,30px);font-weight:800;letter-spacing:-.02em;margin:0;line-height:1.15}
+h2{font-size:17px;font-weight:800;margin:0}
+.app{display:flex;min-height:100vh}
+.side{width:240px;flex:none;background:#fff;border-right:1px solid var(--borde);padding:20px 14px;display:flex;flex-direction:column;gap:4px;position:sticky;top:0;height:100vh}
+.brand{display:flex;align-items:center;gap:10px;padding:0 8px 18px}.brand b{font-size:16px;line-height:1.15;display:block}.brand small{font-size:11.5px;color:var(--gris)}
+.mi{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:10px;color:var(--texto-2);font-size:14px;font-weight:600;min-height:44px}
+.mi:hover{background:var(--fondo);color:var(--texto)}
+.yo{margin-top:auto;font-size:12.5px;color:var(--gris);background:var(--fondo);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:6px}
+main{flex:1;padding:28px clamp(16px,3vw,40px) 60px;display:flex;flex-direction:column;gap:18px;max-width:1280px}
+.top{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between}
+.sub{font-size:14px;color:var(--gris);margin-top:4px}
+.card{background:#fff;border:1px solid var(--borde);border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:18px;align-items:start}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:12px}
+.fila{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 22px;border-radius:99px;font:700 15px Inter,sans-serif;cursor:pointer;border:0;background:var(--azul);color:#fff;white-space:nowrap}
+.btn:hover{background:var(--azul-hover);color:#fff}
+.btn.sec{background:#fff;color:var(--texto);border:1.5px solid var(--borde)}
+.btn.ch{min-height:38px;padding:0 16px;font-size:13.5px}
+.c{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--texto-2)}
+.i{width:100%;min-height:46px;border:1.5px solid var(--borde);border-radius:12px;padding:0 14px;font:500 16px Inter,sans-serif;color:var(--texto);background:#fff;outline:none}
+textarea.i{padding:11px 14px;min-height:90px;resize:vertical;line-height:1.45}
+.i:focus{border-color:var(--azul);box-shadow:0 0 0 4px var(--azul-claro)}
+.i:disabled,.i[readonly]{background:#F8FAFC;color:var(--gris)}
+.ayuda{font-size:12.5px;color:var(--gris);font-weight:500}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:99px;background:var(--azul-claro);color:var(--azul)}
+.chip.v{background:var(--verde-f);color:var(--verde-t)}.chip.a{background:var(--ama-f);color:var(--ama-t)}.chip.r{background:var(--rojo-f);color:var(--rojo-t)}
+.aviso{border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.45;background:var(--azul-claro);color:#0b4f78}
+.aviso.ok{background:var(--verde-f);color:var(--verde-t)}.aviso.al{background:var(--ama-f);color:var(--ama-t)}.aviso.er{background:var(--rojo-f);color:var(--rojo-t)}
+.tb-caja{overflow-x:auto;border:1px solid var(--borde);border-radius:16px;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:var(--marino);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.05em;text-align:left;padding:11px 14px;white-space:nowrap}
+td{padding:11px 14px;border-top:1px solid var(--borde-suave);color:var(--texto-2)}
+.vit{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px}
+.vit label{border-radius:14px;padding:9px 11px;font-size:11.5px;font-weight:800;display:flex;flex-direction:column;gap:2px;background:#F8FAFC;color:var(--texto-2)}
+.vit input{border:0;background:transparent;font:800 19px Inter,sans-serif;color:var(--texto);width:100%;outline:none}
+.login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:var(--marino)}
+.login .card{width:min(420px,100%)}
+.barra{position:sticky;bottom:12px;background:var(--marino);border-radius:16px;padding:12px 16px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;color:#B6C3D4;font-size:13.5px}
+.barra span{flex:1 1 220px}
+.ver h3{font-size:11.5px;font-weight:800;letter-spacing:.06em;color:var(--azul);margin:14px 0 4px}.ver p{margin:0;white-space:pre-wrap}
+@media(max-width:900px){.app{flex-direction:column}.side{width:auto;height:auto;position:sticky;top:0;z-index:20;flex-direction:row;overflow-x:auto;padding:10px;border-right:0;border-bottom:1px solid var(--borde)}.brand{padding:0 8px 0 4px;flex:none}.mi{flex:none}.yo{display:none}}

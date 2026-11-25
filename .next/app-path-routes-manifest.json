@@ -1,0 +1,11 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/login/page": "/login",
+  "/app/pacientes/[id]/notas/[nid]/page": "/app/pacientes/[id]/notas/[nid]",
+  "/app/pacientes/[id]/page": "/app/pacientes/[id]",
+  "/app/page": "/app",
+  "/app/admin/page": "/app/admin",
+  "/app/usuarios/page": "/app/usuarios",
+  "/app/pacientes/nuevo/page": "/app/pacientes/nuevo",
+  "/app/pacientes/page": "/app/pacientes"
+}

@@ -1,0 +1,135 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/app/:path*",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ],
+      "regex": "^/app(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+    }
+  ],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [
+      {
+        "source": "/",
+        "destination": "/landing.html",
+        "regex": "^/(?:/)?$"
+      },
+      {
+        "source": "/demo",
+        "destination": "/demo/index.html",
+        "regex": "^/demo(?:/)?$"
+      }
+    ],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/app/pacientes/[id]",
+      "regex": "^/app/pacientes/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/app/pacientes/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/app/pacientes/[id]/notas/[nid]",
+      "regex": "^/app/pacientes/([^/]+?)/notas/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid",
+        "nxtPnid": "nxtPnid"
+      },
+      "namedRegex": "^/app/pacientes/(?<nxtPid>[^/]+?)/notas/(?<nxtPnid>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/app",
+      "regex": "^/app(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app(?:/)?$"
+    },
+    {
+      "page": "/app/admin",
+      "regex": "^/app/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app/admin(?:/)?$"
+    },
+    {
+      "page": "/app/pacientes",
+      "regex": "^/app/pacientes(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app/pacientes(?:/)?$"
+    },
+    {
+      "page": "/app/pacientes/nuevo",
+      "regex": "^/app/pacientes/nuevo(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app/pacientes/nuevo(?:/)?$"
+    },
+    {
+      "page": "/app/usuarios",
+      "regex": "^/app/usuarios(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/app/usuarios(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

@@ -6,8 +6,9 @@ Expediente clínico electrónico por suscripción, con la marca de cada clínica
 
 | Ruta | Qué es |
 |---|---|
-| `index.html` | Landing de venta (lo que se ve en el dominio). |
-| `demo/` | Demo funcional con datos de ejemplo guardados en el navegador. **No usar con pacientes reales.** |
+| `/` (`public/landing.html`) | Landing de venta. |
+| `/demo` (`public/demo/`) | Demo con datos de ejemplo en el navegador. **No usar con pacientes reales.** |
+| `/login`, `/app/...` | **App real** (Next.js + Supabase): login, roles, súper admin, usuarios, pacientes, expediente y notas con firma. |
 | `supabase/migrations/0001_esquema.sql` | Base de datos real: clínicas, 5 roles, pacientes, notas, recetas, historia clínica, estudios, agenda, inventario y bitácora. |
 
 ## Reglas que cuida la base de datos (no solo la pantalla)
@@ -27,5 +28,11 @@ Se ponen en Vercel → Project → Settings → Environment Variables. **Nunca**
 | Variable | Dónde se usa |
 |---|---|
 | `NEXT_PUBLIC_SUPABASE_URL` | Navegador (es pública) |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Navegador (es pública) |
-| `SUPABASE_SERVICE_ROLE_KEY` | Solo servidor. **Secreta.** |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Navegador (es pública, `sb_publishable_…`) |
+| `SUPABASE_SECRET_KEY` | Solo servidor, para crear usuarios. **Secreta** (`sb_secret_…`). |
+
+## Pendiente (siguientes entregas)
+
+- Agenda, recetas en PDF, estudios con archivos, historia clínica e inventario en la app real.
+- Catálogo CIE-10 oficial completo (requisito NOM-024).
+- Cambio de contraseña y 2FA.

@@ -1,0 +1,11 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/login/page": "app/login/page.js",
+  "/app/pacientes/[id]/notas/[nid]/page": "app/app/pacientes/[id]/notas/[nid]/page.js",
+  "/app/pacientes/[id]/page": "app/app/pacientes/[id]/page.js",
+  "/app/page": "app/app/page.js",
+  "/app/admin/page": "app/app/admin/page.js",
+  "/app/usuarios/page": "app/app/usuarios/page.js",
+  "/app/pacientes/nuevo/page": "app/app/pacientes/nuevo/page.js",
+  "/app/pacientes/page": "app/app/pacientes/page.js"
+}
